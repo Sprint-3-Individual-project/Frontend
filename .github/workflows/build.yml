@@ -1,35 +1,21 @@
-on:
+on: 
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
-  # Build the source
   build:
-
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - name: Check out source
-      uses: actions/checkout@v3
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-
-    - name: Store artifacts
-      uses: actions/upload-artifact@v3
+        fetch-depth: 0
+    - uses: actions/setup-node@v4
       with:
-        name: build
-        if-no-files-found: error
-        path: build
+          node-version: '18.x'
+    - name: npm install
+      run: |
+        npm install
+
+    - name: npm build
+      run: npm build --if-present
