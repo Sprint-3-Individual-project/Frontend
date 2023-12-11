@@ -5,7 +5,7 @@
             <li v-for="product in products" :key="product.productid" class="product-item"  @click="selectProduct(product.productid)">
                 <div class="product-info">
                     <h3 class="product-name">{{ product.name }}</h3>
-                    <p class="product-price">price: {{ product.price }}</p>
+                    <p class="product-price">price: {{ product.price }} <span v-if="product.discountPercentage > 0">discount: {{product.discountPercentage}}%</span></p>
                 </div>
                 <img :src="product.fotourl" class="product-image"/>
             </li>
