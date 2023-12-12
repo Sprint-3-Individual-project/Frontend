@@ -96,6 +96,8 @@ jobs:
 
     - name: Cypress run
       uses: cypress-io/github-action@v6
-      working-directory: ../Test
+      with:
+        start: npm start
+        working-directory: ../Test
 
 
