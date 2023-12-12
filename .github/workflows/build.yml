@@ -77,6 +77,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          cache-dependency-path: Test/package-lock.json
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
