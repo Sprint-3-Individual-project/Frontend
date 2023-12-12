@@ -74,10 +74,13 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-latest
+    needs: sonarcloud
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
           cache-dependency-path: Test/package-lock.json
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
