@@ -92,6 +92,7 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
+      working-directory: ./Test
 
     - name: Cypress run
       uses: cypress-io/github-action@v6
