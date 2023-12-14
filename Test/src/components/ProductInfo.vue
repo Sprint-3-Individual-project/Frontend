@@ -12,7 +12,7 @@
     import ProductService from '../Services/ProductService';
 
     export default {
-        name: 'ProductInfoPage',
+        name: 'ProductInfo',
         props: {
             productId: Number,
         },

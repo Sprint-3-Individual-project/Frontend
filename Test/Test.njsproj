@@ -47,7 +47,7 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="README.md" />
-    <Content Include="src\components\ProductInfoPage.vue">
+    <Content Include="src\components\ProductInfo.vue">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\Config\config.js">
